@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastered Audio Samples - Test Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-wrap: wrap;
+            background-image: url('https://images.unsplash.com/photo-1510736661179-a0d68edb2f90');
+            background-size: cover;
+            background-origin: border-box;
+        }
+        button {
+            opacity: 0.85;
+            font-size:xx-large;
+            width: 300px;
+            height: 300px;
+            margin: 20px;
+            border-radius: 20%;
+        }
+        .flat {
+            background-color: yellow;
+        }
+        .mix {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <button id="DANCE-flat" class="dance flat">DANCE-flat</button>
+    <button id="DANCE-mix" class="dance mix">DANCE-mix</button>
+    <button id="INDIE-ROCK-flat" class="indie-rock flat">INDIE-ROCK-flat</button>
+    <button id="INDIE-ROCK-mix" class="indie-rock mix">INDIE-ROCK-mix</button>
+    <script defer src="js/howler.core.min-v2.2.0.js"></script>
+    <script defer src="js/player.js"></script>
+</body>
+</html>

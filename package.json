@@ -1,0 +1,25 @@
+{
+  "name": "js-mastered-audio-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/player.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/preset-env": "^7.10.1"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "build": "npx babel src/ --out-dir js/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaftoe/js-mastered-audio-player.git"
+  },
+  "author": "Alexander Fortin",
+  "license": "Apache v2.0",
+  "homepage": "https://github.com/shaftoe/js-mastered-audio-player"
+}

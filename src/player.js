@@ -1,14 +1,17 @@
-/* Scan the DOM for tags with ${title}-mix and ${title}-flat ids */
+"use strict"
+const TRACK_GROUPS = {}
 const TRACK_TITLES = []
-document.querySelectorAll("button").forEach(el => {
-    let title = null
-    if (el.id.match(/\-mix$/)) title = el.id.slice(0, -4)
-    if (el.id.match(/\-flat$/)) title = el.id.slice(0, -5)
-    if (title && ! TRACK_TITLES.includes(title)) TRACK_TITLES.push(title)
-})
 
+/**
+ * Abstraction to handle a grouped synched pair of playable media tracks.
+ */
 class TrackGroup {
 
+    /**
+     * @constructor
+     * @param {string} trackTitle - The title of the track under samples/
+     *                              e.g: "DANCE" if samples/DANCE-flat.webm and samples/DANCE-mix.webm
+     */
     constructor(trackTitle) {
         this.trackTitle = trackTitle
         this.trackTypePlaying = null
@@ -41,7 +44,7 @@ class TrackGroup {
         this.trackTypePlaying = null
     }
 
-    pauseOtherTRACK_GROUPS() {
+    pauseOtherGroups() {
         Object.keys(TRACK_GROUPS)
             .filter(title => title != this.trackTitle)
             .forEach(title => TRACK_GROUPS[title].pause())
@@ -50,7 +53,7 @@ class TrackGroup {
     play(trackType) {
         if (this.trackTypePlaying === trackType) this.pause()
         else {
-            this.pauseOtherTRACK_GROUPS()
+            this.pauseOtherGroups()
             this.mute()
             this.tracks[trackType].volume(1)
             this.trackTypePlaying = trackType
@@ -62,5 +65,18 @@ class TrackGroup {
 
 }
 
-const TRACK_GROUPS = {}
-TRACK_TITLES.forEach(title => TRACK_GROUPS[title] = new TrackGroup(title))
+window.onload = () => {
+    /**
+     * Scan the DOM for button tags with "${title}-mix" and "${title}-flat" ids
+     * to populate global TRACK_TITLES array
+     */
+    document.querySelectorAll("button").forEach(el => {
+        let title = null
+        if (el.id.match(/\-mix$/)) title = el.id.slice(0, -4)
+        if (el.id.match(/\-flat$/)) title = el.id.slice(0, -5)
+        if (title && !TRACK_TITLES.includes(title)) TRACK_TITLES.push(title)
+    })
+
+    /* Initialize track groups */
+    TRACK_TITLES.forEach(title => TRACK_GROUPS[title] = new TrackGroup(title))
+}

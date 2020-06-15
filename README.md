@@ -1,6 +1,6 @@
-# JavaScript Raw/Mastered (Flat/Mix) audio sample player
+# JavaScript Raw/Mixed (Flat/Mix) audio sample player
 
-A simple implementation of a `Play/Pause` action for a double-version music samples buttons (*raw* and *mastered*, or *flat* and *mix*). The main purpose is to let the web client easily play samples and toggle between listening the different versions while the two tracks stay in sync (and stop playing other groups).
+A simple implementation of a `Play/Pause` action for a double-version music samples buttons (*raw* and *mixed*, or *flat* and *mix*). The main purpose is to let the web client easily play samples and toggle between listening the different versions while the two tracks stay in sync (and stop playing other groups).
 
 Supports multiple track groups out of the box.
 
@@ -39,5 +39,5 @@ The [main JS file](src/player.js) when executed will:
 Refer to [index.html](index.html), [player.js](src/player.js) and [samples/](samples/) folder for the current [demo][demo] values.
 
 [babel]: <https://babeljs.io/>
-[demo]: <https://shaftoe.github.io/js-mastered-audio-player/>
+[demo]: <https://shaftoe.github.io/js-mixed-audio-player/>
 [howler]: <https://github.com/goldfire/howler.js#documentation>
